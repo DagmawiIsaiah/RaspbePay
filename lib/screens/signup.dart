@@ -161,7 +161,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     width: size.width,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Add your login logic here
+                        Navigator.of(context)
+                            .pushReplacementNamed(verifyPhoneRoute);
                       },
                       child: const Text('Sign Up'),
                     ),

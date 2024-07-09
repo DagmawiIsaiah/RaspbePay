@@ -21,6 +21,7 @@ class RaspbePay extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (context) => const LoginScreen(),
         SignupScreen.routeName: (context) => const SignupScreen(),
+        VerifyPhoneScreen.routeName: (context) => const VerifyPhoneScreen(),
       },
     );
   }
