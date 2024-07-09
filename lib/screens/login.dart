@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: size.width,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Add your login logic here
+                        Navigator.of(context).pushReplacementNamed(homeRoute);
                       },
                       child: const Text('Log In'),
                     ),
