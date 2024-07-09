@@ -2,30 +2,39 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String routeName = '/login';
+class SignupScreen extends StatefulWidget {
+  static const String routeName = '/signup';
 
-  const LoginScreen({super.key});
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
+  late TextEditingController _nameController;
+  late TextEditingController _phoneController;
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
+  late TextEditingController _confirmPasswordController;
 
   @override
   void initState() {
     super.initState();
+    _nameController = TextEditingController();
+    _phoneController = TextEditingController();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
+    _confirmPasswordController = TextEditingController();
   }
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _phoneController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -55,17 +64,48 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Spacer(),
                   Text(
-                    'Log In',
+                    'Sign Up',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   Text(
-                    'Enter your credentials to access Raspbepay',
+                    'Create your RaspbePay account to start managing your payments',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(height: 40),
                   Form(
                     child: Column(
                       children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Full name',
+                            border: OutlineInputBorder(),
+                          ),
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your full name';
+                            }
+                            return null;
+                          },
+                          controller: _nameController,
+                        ),
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Phone number',
+                            border: OutlineInputBorder(),
+                          ),
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your phone number';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.phone,
+                          controller: _phoneController,
+                        ),
+                        const SizedBox(height: 10),
                         TextFormField(
                           decoration: const InputDecoration(
                             labelText: 'Email',
@@ -97,14 +137,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           controller: _passwordController,
                         ),
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            labelText: 'Confirm password',
+                            border: OutlineInputBorder(),
+                          ),
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          obscureText: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your confirm password';
+                            }
+                            return null;
+                          },
+                          controller: _confirmPasswordController,
+                        ),
                       ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password?",
-                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
                   const SizedBox(height: 60),
@@ -114,17 +163,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         // Add your login logic here
                       },
-                      child: const Text('Log In'),
+                      child: const Text('Sign Up'),
                     ),
                   ),
                   SizedBox(
                     width: size.width,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacementNamed(signupRoute);
+                        Navigator.of(context).pushReplacementNamed(loginRoute);
                       },
                       child: Text(
-                        "Don't have an account? Sign Up",
+                        "Aleady have an account? Log in",
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                     ),
