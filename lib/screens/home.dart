@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const RaspbepayCard(),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
@@ -50,6 +49,14 @@ class HomeScreen extends StatelessWidget {
                       const Spacer(),
                       OperationCard(title: "Cashout", size: size),
                     ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: double.maxFinite,
+                  child: OperationCard(
+                    title: "Cashout",
+                    size: size,
                   ),
                 ),
                 Padding(
@@ -86,7 +93,10 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomAppBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.person),
+      ),
     );
   }
 }
