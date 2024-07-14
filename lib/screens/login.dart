@@ -36,104 +36,95 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         primary: true,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Image.asset(
-              "assets/images/vector.png",
-              fit: BoxFit.cover,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 32,
-                vertical: 20,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 32,
+            vertical: 20,
+          ),
+          width: size.width,
+          height: size.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(),
+              Text(
+                'Log In',
+                style: Theme.of(context).textTheme.titleLarge,
               ),
-              width: size.width,
-              height: size.height,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Spacer(),
-                  Text(
-                    'Log In',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  Text(
-                    'Enter your credentials to access Raspbepay',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  const SizedBox(height: 40),
-                  Form(
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Email',
-                            border: OutlineInputBorder(),
-                          ),
-                          style: Theme.of(context).textTheme.bodyLarge,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
-                            }
-                            return null;
-                          },
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                        ),
-                        const SizedBox(height: 10),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Password',
-                            border: OutlineInputBorder(),
-                          ),
-                          style: Theme.of(context).textTheme.bodyLarge,
-                          obscureText: true,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
-                            }
-                            return null;
-                          },
-                          controller: _passwordController,
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password?",
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                  ),
-                  const SizedBox(height: 60),
-                  SizedBox(
-                    width: size.width,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed(homeRoute);
-                      },
-                      child: const Text('Log In'),
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacementNamed(signupRoute);
-                      },
-                      child: Text(
-                        "Don't have an account? Sign Up",
-                        style: Theme.of(context).textTheme.labelLarge,
+              Text(
+                'Enter your credentials to access Raspbepay',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 40),
+              Form(
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
                       ),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      controller: _emailController,
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                ],
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(),
+                      ),
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      obscureText: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        return null;
+                      },
+                      controller: _passwordController,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Forgot Password?",
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+              ),
+              const SizedBox(height: 60),
+              SizedBox(
+                width: size.width,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(homeRoute);
+                  },
+                  child: const Text('Log In'),
+                ),
+              ),
+              SizedBox(
+                width: size.width,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(signupRoute);
+                  },
+                  child: Text(
+                    "Don't have an account? Sign Up",
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
