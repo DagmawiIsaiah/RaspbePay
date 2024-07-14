@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RaspbePayColor {
-  static const Color primaryColor = Color.fromARGB(255, 0, 169, 165);
+  static const Color primaryColor = Colors.green;
 }
 
 class RaspbepayTheme {
@@ -35,12 +36,6 @@ class RaspbepayTheme {
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color.fromARGB(255, 242, 242, 242),
     textTheme: lightTextTheme,
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      elevation: 0
-    ),
-    // textButtonTheme: TextButtonThemeData(
-    //   style: ButtonStyle(textStyle: WidgetStateProperty.all<TextStyle>(lightTextTheme.labelLarge!)),
-    // ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: RaspbePayColor.primaryColor,

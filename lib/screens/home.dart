@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -23,13 +23,25 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Row(
                     children: [
-                      Text(
-                        "Hello, Dagmawi",
-                        style: Theme.of(context).textTheme.titleLarge,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Hi, Dagmawi",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          Text(
+                            "14,560.00",
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ],
                       ),
                       const Spacer(),
-                      CircleAvatar(
-                        child: Icon(Icons.person),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.notifications_outlined,
+                        ),
                       ),
                     ],
                   ),
@@ -38,16 +50,20 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     "Operations",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
                 SizedBox(
                   width: size.width,
                   child: Row(
                     children: [
-                      OperationCard(title: "Transfer", size: size),
+                      OperationCard(
+                          title: "Transfer",
+                          icon: Icons.mobile_friendly,
+                          size: size),
                       const Spacer(),
-                      OperationCard(title: "Cashout", size: size),
+                      OperationCard(
+                          title: "Cashout", icon: Icons.wallet, size: size),
                     ],
                   ),
                 ),
@@ -56,6 +72,7 @@ class HomeScreen extends StatelessWidget {
                   width: double.maxFinite,
                   child: OperationCard(
                     title: "Cashout",
+                    icon: Icons.qr_code,
                     size: size,
                   ),
                 ),
@@ -66,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Transactions",
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       const Spacer(),
                       Text(
@@ -93,9 +110,12 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.person),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(right: 16, bottom: 16),
+        child: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.person),
+        ),
       ),
     );
   }
