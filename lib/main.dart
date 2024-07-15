@@ -23,6 +23,7 @@ class RaspbePay extends StatelessWidget {
         SignupScreen.routeName: (context) => const SignupScreen(),
         VerifyPhoneScreen.routeName: (context) => const VerifyPhoneScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
+        DashboardScreen.routeName: (context) => const DashboardScreen(),
       },
     );
   }

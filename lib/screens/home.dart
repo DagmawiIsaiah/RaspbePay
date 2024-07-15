@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/widgets.dart';
+import '../constants.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
@@ -113,7 +114,9 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(right: 16, bottom: 16),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, dashboardRoute);
+          },
           child: const Icon(Icons.person),
         ),
       ),
