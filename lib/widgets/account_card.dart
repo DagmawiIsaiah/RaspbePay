@@ -23,8 +23,19 @@ class AccountCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Awash Bank"),
-              Text("Account number"),
+              Text(
+                "Awash Bank",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontSize: 14),
+              ),
+              Text(
+                "Account number",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Colors.black.withOpacity(0.8),
+                    ),
+              ),
             ],
           ),
         ],

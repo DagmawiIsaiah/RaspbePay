@@ -10,6 +10,8 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> accounts = ["Awash", "Abissiniya"];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -25,23 +27,48 @@ class DashboardScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customTile(
-                      "Dashboard",
-                      "Edit profile and app settings",
-                      const Icon(Icons.logout),
-                      null,
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Dashboard",
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                            Text(
+                              "Edit profile and app settings",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    color: Colors.black.withOpacity(0.8),
+                                  ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.logout_rounded),
+                        ),
+                      ],
                     ),
-                    customTile(
-                      "Display name",
-                      "RaspbePay account number",
-                      Icon(Icons.edit_outlined),
-                      CircleAvatar(
+                    const SizedBox(height: 10),
+                    CustomListTile(
+                      title: "Display name",
+                      subtitle: "RaspbePay account number",
+                      trailing: Icon(Icons.edit_outlined),
+                      leading: CircleAvatar(
                         radius: 20,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: Text("Your connected wallet and accounts"),
+                      child: Text(
+                        "Your connected wallet and accounts",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
@@ -64,7 +91,13 @@ class DashboardScreen extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Icon(Icons.add),
-                                      Text("Add"),
+                                      Text(
+                                        "Add",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(fontSize: 14),
+                                      ),
                                     ],
                                   ),
                                 )
@@ -75,56 +108,174 @@ class DashboardScreen extends StatelessWidget {
                         itemCount: 5,
                       ),
                     ),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),
-              Text("Security settings"),
               Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 32,
                   vertical: 16,
                 ),
-                child: customTile(
-                  "Change password",
-                  null,
-                  Icon(
-                    Icons.arrow_forward_ios_rounded,
-                  ),
-                  null,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Text(
+                        "Security settings",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Change Password",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            const Spacer(),
+                            Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 32,
+                              vertical: 32,
+                            ),
+                            child: Column(
+                              children: [
+                                CustomListTile(
+                                  title: "Delete Account",
+                                  subtitle: "delete your raspbepay account",
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 16,
+                                  ),
+                                  child: Text(
+                                    "Your account balance is 250ETB chose account to withdrawal",
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: double.maxFinite,
+                                  child: DropdownMenu(
+                                    width: double.maxFinite,
+                                    initialSelection: 0,
+                                    onSelected: (value) {},
+                                    dropdownMenuEntries: [
+                                      ...accounts
+                                          .map(
+                                            (account) => DropdownMenuEntry(
+                                              value: accounts.indexOf(account),
+                                              label: account,
+                                            ),
+                                          )
+                                          .toList(),
+                                    ],
+                                  ),
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  width: double.maxFinite,
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    child: Text("Delete Account"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Delete Account",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            const Spacer(),
+                            Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 16,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        "App settings",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    CustomListTile(
+                      title: "Enable dark mode",
+                      subtitle: "Use this to change the theme",
+                      trailing: Switch(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                      leading: null,
+                    ),
+                    CustomListTile(
+                      title: "Enable dark mode",
+                      subtitle: "Use this to change the theme",
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
+                      leading: null,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        "App info",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    CustomListTile(
+                      title: "App version",
+                      subtitle: "Build v1.0.1",
+                      trailing: null,
+                      leading: null,
+                    ),
+                    const SizedBox(height: 10),
+                    CustomListTile(
+                      title: "Developer",
+                      subtitle: "dagmawiisaiah.dev@gmail.com",
+                      trailing: null,
+                      leading: null,
+                    ),
+                  ],
                 ),
-              ),
-              Text("App settings"),
-              customTile(
-                "Enable dark mode",
-                "Use this to change the theme",
-                Switch(
-                  value: false,
-                  onChanged: (value) {},
-                ),
-                null,
-              ),
-              customTile(
-                "Enable dark mode",
-                "Use this to change the theme",
-                Icon(Icons.arrow_forward_ios_rounded),
-                null,
-              ),
-              Text("App info"),
-              customTile(
-                "App version",
-                "Build v1.0.1",
-                null,
-                null,
-              ),
-              customTile(
-                "Developer",
-                "dagmawiisaiah.dev@gmail.com",
-                null,
-                null,
               ),
             ],
           ),
@@ -139,34 +290,6 @@ class DashboardScreen extends StatelessWidget {
           child: const Icon(Icons.arrow_back),
         ),
       ),
-    );
-  }
-
-  Widget customTile(
-    String title,
-    String? subtitle,
-    Widget? trailing,
-    Widget? leading,
-  ) {
-    return Row(
-      children: [
-        if (leading != null) leading,
-        if (leading != null) const SizedBox(width: 10),
-        (subtitle != null)
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title),
-                  Text(subtitle),
-                ],
-              )
-            : Text(title),
-        const Spacer(),
-        if (trailing != null) IconButton(
-          onPressed: () {},
-          icon: trailing,
-        ),
-      ],
     );
   }
 }
