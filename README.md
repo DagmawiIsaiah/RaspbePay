@@ -1,16 +1,40 @@
-# myapp
+# **RaspbePay – QR-Based Payment Made Simple** 💳📲  
 
-A new Flutter project.
+**RaspbePay** is a fast, secure, and seamless **QR-based payment app** that allows users to make and receive payments with just a scan. Whether you're a business owner, a freelancer, or just someone who prefers a **cashless** and **hassle-free** transaction experience, RaspbePay makes digital payments effortless.  
 
-## Getting Started
+## 🚀 **Features**  
 
-This project is a starting point for a Flutter application.
+✅ **Instant QR Transactions** – Scan & pay within seconds.  
+✅ **Secure & Encrypted Payments** – Ensures safety with advanced encryption.  
+✅ **Transaction History & Insights** – Track all your payments with ease.  
+✅ **Merchant & Personal Modes** – Works for businesses and individuals.  
 
-A few resources to get you started if this is your first Flutter project:
+## 🎯 **Use Cases**  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Businesses & Shops** – Accept quick & secure payments without a POS system.  
+- **Freelancers & Service Providers** – Get paid instantly via QR code.  
+- **Event Organizers** – Sell tickets and collect fees with a simple scan.  
+- **Everyday Users** – Pay for groceries, transport, and more with ease.  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠 **Installation & Setup**  
+
+### **Requirements**  
+- Flutter SDK  
+- Dart  
+- Backend API for payment processing  
+
+### **Installation**  
+
+```bash
+git clone https://github.com/DagmawiIsaiah/RaspbePay.git
+cd RaspbePay
+flutter pub get
+```
+
+### **Run the App**  
+
+```bash
+flutter run
+```
+
+Under Dev
