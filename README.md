@@ -2,6 +2,8 @@
 
 **RaspbePay** is a fast, secure, and seamless **QR-based payment app** that allows users to make and receive payments with just a scan. Whether you're a business owner, a freelancer, or just someone who prefers a **cashless** and **hassle-free** transaction experience, RaspbePay makes digital payments effortless.  
 
+![RaspbePay Screenshot](flow.png)
+
 ## 🚀 **Features**  
 
 ✅ **Instant QR Transactions** – Scan & pay within seconds.  
